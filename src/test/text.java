@@ -9,24 +9,26 @@ import java.sql.Statement;
 
 public class text {
 	static void test(String sql){
+         System.out.println("æµ‹è¯•å¼€å§‹ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚");
+			
 		Connection conn=null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			System.out.println("jdbcÇı¶¯ÔØÈë³É¹¦£¿");
-			//½¨Á¢Êı¾İ¿âÁ¬½Ó
+			System.out.println("jdbcé©±åŠ¨è½½å…¥æˆåŠŸï¼Ÿ");
+			//å»ºç«‹æ•°æ®åº“è¿æ¥
 			String url="jdbc:oracle:thin:@localhost:1521:ORCL";
 			String uid="wanglj";
 			String passwd="brcb1234";
 			
 			conn=DriverManager.getConnection(url, uid, passwd);
-			System.out.println("jdbcÁ¬½Ó³É¹¦");
+			System.out.println("jdbcè¿æ¥æˆåŠŸ");
 			
-			//¹¹½¨²Ù×÷Êı¾İ¿âµÄ¹¤¾ß
+			//æ„å»ºæ“ä½œæ•°æ®åº“çš„å·¥å…·
 			Statement stmt=conn.createStatement();
 			//sql
-			//String sql="insert into classs values('005','JAVAÖĞ¼¶°à',to_Date('2013-12-21','yyyy-mm-dd'))";
+			//String sql="insert into classs values('005','JAVAä¸­çº§ç­',to_Date('2013-12-21','yyyy-mm-dd'))";
 			ResultSet rs=stmt.executeQuery(sql);
-			//System.out.println("Ó°ÏìĞĞÊı="+an);
+			//System.out.println("å½±å“è¡Œæ•°="+an);
 			int no=0;
 			while(true){
 				boolean isNextOK=rs.next();
@@ -42,9 +44,9 @@ public class text {
 		}finally{
 			try {
 				conn.close();
-				System.out.println("Êı¾İ¿âÁ¬½Ó¹Ø±Õ");
+				System.out.println("æ•°æ®åº“è¿æ¥å…³é—­");
 			} catch (SQLException e) {
-				// TODO ×Ô¶¯Éú³ÉµÄ catch ¿é
+				// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 				e.printStackTrace();
 			}
 		}	
